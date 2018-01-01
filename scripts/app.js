@@ -2,6 +2,33 @@
 (function() {
   'use strict';
 
+  var injectedForecast = {
+    key: 'network',
+    label: 'New York, NY',
+    currently: {
+      time: 1453235243,
+      summary: 'Clear',
+      icon: 'partly-cloudy-day',
+      temperature: 45.67,
+      apparentTemperature: 74.37,
+      precipProbability: 0.22,
+      humidity: 0.77,
+      windBearing: 127,
+      windSpeed: 1.57
+    },
+    daily: {
+      data: [
+        {icon: 'clear-day', temperatureMax: 55, temperatureMin: 34},
+        {icon: 'rain', temperatureMax: 57, temperatureMin: 45},
+        {icon: 'snow', temperatureMax: 57, temperatureMin: 45},
+        {icon: 'sleet', temperatureMax: 57, temperatureMin: 45},
+        {icon: 'fog', temperatureMax: 57, temperatureMin: 45},
+        {icon: 'wind', temperatureMax: 57, temperatureMin: 45},
+        {icon: 'partly-cloudy-day', temperatureMax: 57, temperatureMin: 45}
+      ]
+    }
+  }
+
   var weatherAPIUrlBase = 'https://publicdata-weather.firebaseio.com/';
 
   var app = {
@@ -149,5 +176,7 @@
       app.getForecast(key);
     });
   };
+
+  app.updateForecastCard(injectedForecast);
 
 })();
